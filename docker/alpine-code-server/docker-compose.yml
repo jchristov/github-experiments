@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  code-server:
+    image: martinussuherman/alpine-code-server
+    environment:
+      - TZ=Europe/Vienna
+      - EUID=1001
+      - EGID=1001
+    volumes:
+      - ~/vscode:/home/vscode
+    ports:
+      - 8080:8080

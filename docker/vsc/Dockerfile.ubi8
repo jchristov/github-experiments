@@ -1,0 +1,10 @@
+#FROM redhat/ubi8
+FROM registry.access.redhat.com/ubi8/nodejs-14
+
+# Disable subscription manager and weak dependencies
+RUN echo "enabled=0" >> /etc/yum/pluginconf.d/subscription-manager.conf \
+    && echo "install_weak_deps=False" >> /etc/dnf/dnf.conf
+
+RUN dnf update -y \
+    && dnf install -y git-core nano python38 wget \
+    && dnf clean all

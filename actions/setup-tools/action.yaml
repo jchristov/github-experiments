@@ -1,0 +1,13 @@
+name: Setup DevOps Tools
+description: GitHub action for setting up a DevOps toolset
+inputs:
+  tool:
+    description: The tool to install
+    required: true
+    default: nodejs
+outputs:
+  path:
+    description: The tool install path
+runs:
+  using: node12
+  main: index.js

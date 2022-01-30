@@ -1,0 +1,22 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test
+        uses: ./actions/setup-devops-tools/
+        #run: ./actions/setup-devops-tools/setup.sh
+      #- name: Test
+        #uses: ./actions/setup-tools/
+        #with:
+        #  path: "actions/setup-tools" 

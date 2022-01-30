@@ -1,0 +1,13 @@
+# Node 14.x required!
+FROM node:14-alpine
+
+# Pre-requisites
+RUN apk add alpine-sdk bash libstdc++ libc6-compat
+RUN npm config set python python3
+
+# Install code-server
+RUN yarn global add code-server
+#RUN npm install -g code-server
+
+ENTRYPOINT ["code-server"]
+CMD ["--bind-addr 0.0.0.0:8080 --auth none"]

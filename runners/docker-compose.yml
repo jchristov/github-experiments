@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  runner:
+    image: samber/github-actions-runner:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
+    environment:
+      - GH_REPOSITORY=https://github.com/jchristov/github-experiments
+      - GH_RUNNER_TOKEN=AABUGW6BUNWYI3YXW2NDOV3BXY4SO
+      - GH_RUNNER_LABELS=self-hosted,docker
+    restart: unless-stopped
